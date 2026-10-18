@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#090b10" />
+<title>GitHub Profile Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Profile Studio home"><span class="brand-mark">⌘</span><span>profile<span class="muted">.studio</span></span></a>
+  <div class="top-actions"><span class="live-dot"></span><span class="top-label">GITHUB PROFILE EXPERIENCE</span><button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">☼</button></div>
+</header>
+<main class="shell">
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow"><span class="spark">✳</span> YOUR WORK, BEAUTIFULLY PRESENTED</div>
+      <h1>Build in public.<br><span class="gradient-text">Stand out.</span></h1>
+      <p class="hero-sub">A polished, interactive home for your GitHub world — projects, activity, and the ideas behind the code.</p>
+      <div class="hero-cta"><a class="primary-btn" href="#repositories">Explore repositories <span>↘</span></a><a class="quiet-link" href="https://github.com/" target="_blank" rel="noreferrer">Open GitHub ↗</a></div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="orb-core"><span>⌘</span></div><div class="floating-chip chip-code">{"code": "create"}</div><div class="floating-chip chip-stars">✦ &nbsp; build something</div><div class="floating-chip chip-branch">⑂ main</div></div>
+  </section>
+  <section class="profile-card glass">
+    <div class="profile-main">
+      <div class="avatar-wrap"><img id="avatar" src="https://github.com/identicons/octocat.png" alt="GitHub avatar"><span class="avatar-status"></span></div>
+      <div class="profile-info"><div class="name-row"><h2 id="displayName">Your Name</h2><span class="pro-badge">CREATOR</span></div><p class="username" id="handle">@your-github</p><p class="bio" id="bio">Building useful things, one commit at a time.</p><div class="meta-row"><span>⌖ <span id="location">Your city, Earth</span></span><span>◷ Joined the journey</span></div></div>
+    </div>
+    <div class="profile-side"><div class="profile-stats"><div><strong id="followers">—</strong><span>Followers</span></div><div><strong id="following">—</strong><span>Following</span></div><div><strong id="repoCount">—</strong><span>Repositories</span></div></div><div class="profile-actions"><button class="outline-btn" id="editBtn">✎ Customize</button><a class="primary-btn small" id="githubLink" href="https://github.com/" target="_blank" rel="noreferrer">GitHub profile ↗</a></div></div>
+  </section>
+  <section class="dashboard">
+    <aside class="sidebar glass">
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" data-tab="overview"><span>◫</span> Overview <span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-tab="repositories"><span>▤</span> Repositories <span class="count" id="repoNavCount">0</span></button>
+      <button class="nav-item" data-tab="activity"><span>⌁</span> Activity</button>
+      <button class="nav-item" data-tab="about"><span>✳</span> About me</button>
+      <div class="side-divider"></div><div class="side-label">QUICK FILTER</div>
+      <button class="filter-chip selected" data-filter="all">All projects <span>✦</span></button>
+      <button class="filter-chip" data-filter="JavaScript">JavaScript</button>
+      <button class="filter-chip" data-filter="HTML">HTML</button>
+      <button class="filter-chip" data-filter="CSS">CSS</button>
+      <div class="sidebar-bottom"><div class="mini-orb">✦</div><p><b>Keep shipping.</b><br><span>Small commits add up.</span></p></div>
+    </aside>
+    <div class="content-area">
+      <div class="content-head"><div><div class="eyebrow">YOUR DEVELOPER SPACE</div><h2 id="sectionTitle">Overview <span class="title-period">.</span></h2></div><button class="outline-btn refresh-btn" id="refreshBtn">↻ <span>Refresh data</span></button></div>
+      <div id="notice" class="notice hidden"></div>
+      <section class="tab-panel active" id="panel-overview">
+        <div class="metrics-grid">
+          <article class="metric-card"><div class="metric-top"><span>PUBLIC REPOS</span><span class="metric-icon violet">▤</span></div><div class="metric-value" id="metricRepos">06</div><div class="metric-foot"><span class="metric-line"></span><span>Ideas in motion</span></div></article>
+          <article class="metric-card"><div class="metric-top"><span>STARS EARNED</span><span class="metric-icon yellow">✦</span></div><div class="metric-value" id="metricStars">128</div><div class="metric-foot"><span class="up">↗</span><span>Appreciation from the community</span></div></article>
+          <article class="metric-card"><div class="metric-top"><span>TOP LANGUAGE</span><span class="metric-icon blue">{ }</span></div><div class="metric-value language-value" id="metricLanguage">JavaScript</div><div class="metric-foot"><span class="lang-dot"></span><span>What you build with</span></div></article>
+        </div>
+        <div class="section-row"><div><h3>Featured repositories</h3><p>A few things from the workshop.</p></div><button class="text-btn" data-goto="repositories">View all ↗</button></div>
+        <div class="repo-grid" id="featuredRepos"></div>
+        <div class="section-row activity-heading"><div><h3>Contribution rhythm</h3><p>A snapshot of consistent progress.</p></div><span class="activity-total">▦ <b id="contribTotal">342</b> contributions</span></div>
+        <div class="contribution-card glass"><div class="months"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div><div class="heatmap" id="heatmap"></div><div class="heat-legend"><span>Less</span><i class="heat-0"></i><i class="heat-1"></i><i class="heat-2"></i><i class="heat-3"></i><i class="heat-4"></i><span>More</span></div></div>
+      </section>
+      <section class="tab-panel" id="panel-repositories">
+        <div class="repo-toolbar"><label class="search-box"><span>⌕</span><input id="repoSearch" type="search" placeholder="Search repositories..." aria-label="Search repositories"></label><select id="sortRepos" aria-label="Sort repositories"><option value="updated">Recently updated</option><option value="stars">Most starred</option><option value="name">Name A–Z</option></select></div>
+        <div class="repo-grid full-grid" id="allRepos"></div><p class="empty-state hidden" id="emptyRepos">No repositories match that search.</p>
+      </section>
+      <section class="tab-panel" id="panel-activity">
+        <div class="timeline glass" id="timeline"></div>
+      </section>
+      <section class="tab-panel" id="panel-about">
+        <div class="about-card glass"><div class="about-mark">⌘</div><div><div class="eyebrow">A LITTLE ABOUT THE BUILDER</div><h3 id="aboutHeading">Curious mind. Practical maker.</h3><p id="aboutText">I enjoy turning complex ideas into simple, thoughtful digital experiences. This space is where experiments become projects and lessons become better code.</p><div class="skill-tags" id="skillTags"><span>Frontend</span><span>UI / UX</span><span>Creative coding</span><span>Learning in public</span></div></div></div>
+        <div class="section-row"><div><h3>Principles I build by</h3><p>Good work is a practice, not a finish line.</p></div></div>
+        <div class="principles-grid"><article><span>01</span><h4>Stay curious</h4><p>Keep asking better questions and learning out loud.</p></article><article><span>02</span><h4>Make it useful</h4><p>Build for real people, not just a pretty screenshot.</p></article><article><span>03</span><h4>Ship, then improve</h4><p>Progress comes from sharing work and iterating.</p></article></div>
+      </section>
+      <footer class="footer"><span>Designed with intent <span class="heart">♥</span></span><span>PROFILE.STUDIO <span class="footer-dot">●</span> 2026</span></footer>
+    </div>
+  </section>
+</main>
+<div class="modal-backdrop hidden" id="editModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><form class="edit-modal glass" id="profileForm"><div class="modal-head"><div><div class="eyebrow">MAKE IT YOURS</div><h2 id="modalTitle">Customize profile</h2></div><button type="button" class="icon-btn" id="closeModal" aria-label="Close">×</button></div><label>GitHub username<input id="usernameInput" placeholder="octocat" required></label><p class="field-help">Enter a real GitHub username to load live profile and repository data.</p><label>Display name<input id="nameInput" placeholder="Your name"></label><label>Short bio<textarea id="bioInput" rows="2" placeholder="What are you building?"></textarea></label><label>Location<input id="locationInput" placeholder="City, Country"></label><div class="modal-actions"><button type="button" class="outline-btn" id="cancelEdit">Cancel</button><button type="submit" class="primary-btn">Save profile ↗</button></div><p class="field-help">Live data requires an internet connection. No token needed for public profiles.</p></form></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
